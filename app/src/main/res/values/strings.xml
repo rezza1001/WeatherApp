@@ -5,4 +5,8 @@
     <string name="degree">℃</string>
     <string name="humidity">Humidity</string>
     <string name="wind">Wind</string>
+    <string name="find_city">Find City</string>
+    <string name="favorite">Favorite</string>
+    <string name="list_favorite">List Favorite</string>
+    <string name="favorite_not_found">Favorite Not Found</string>
 </resources>

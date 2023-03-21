@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rv_header"
+        android:background="@color/primaryLight"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <RelativeLayout
+            android:id="@+id/rv_back"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="50dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:tint="@color/white"
+                android:src="@drawable/arrow_back_sharp"
+                android:layout_centerInParent="true"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_toEndOf="@+id/rv_back"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="6dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerInParent="true"
+            app:cardElevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <EditText
+                    android:id="@+id/et_search"
+                    android:hint="@string/find_city"
+                    android:background="#00ffffff"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:id="@+id/iv_clear"
+                    android:src="@drawable/clear"
+                    android:padding="11dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_data"
+        android:layout_below="@+id/rv_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

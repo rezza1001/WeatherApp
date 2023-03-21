@@ -1,4 +1,4 @@
-package com.rezza.weatherapp.ui;
+package com.rezza.weatherapp.ui.viewmodel;
 
 import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;

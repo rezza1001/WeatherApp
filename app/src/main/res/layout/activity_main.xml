@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.activity.MainActivity">
     <ImageView
         android:src="@drawable/background"
         android:scaleType="centerCrop"
@@ -26,49 +26,93 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <RelativeLayout
+            android:id="@+id/rv_search"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:layout_alignParentEnd="true"
+            android:layout_width="56dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:tint="@color/white"
+                android:src="@drawable/search"
+                android:layout_centerInParent="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rv_favorite"
+            android:layout_toStartOf="@+id/rv_search"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="56dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:tint="@color/white"
+                android:src="@drawable/favorite"
+                android:layout_centerInParent="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+        </RelativeLayout>
+
     </RelativeLayout>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_below="@+id/rv_header"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <com.rezza.weatherapp.ui.view.TodayView
-            android:id="@+id/vw_today"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        
-
-        <HorizontalScrollView
-            android:layout_marginTop="20dp"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"/>
-                <com.rezza.weatherapp.ui.view.TomorrowView
-                    android:id="@+id/vw_tomorrow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp"/>
-                <com.rezza.weatherapp.ui.view.AfterTmrView
-                    android:id="@+id/vw_afterTmr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </HorizontalScrollView>
 
-    </LinearLayout>
+            <com.rezza.weatherapp.ui.view.TodayView
+                android:id="@+id/vw_today"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_time"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bkg_today"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <HorizontalScrollView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"/>
+                    <com.rezza.weatherapp.ui.view.TomorrowView
+                        android:id="@+id/vw_tomorrow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"/>
+                    <com.rezza.weatherapp.ui.view.AfterTmrView
+                        android:id="@+id/vw_afterTmr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 

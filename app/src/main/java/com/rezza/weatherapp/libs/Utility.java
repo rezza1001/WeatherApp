@@ -1,5 +1,19 @@
 package com.rezza.weatherapp.libs;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+
+import androidx.core.content.res.ResourcesCompat;
+
+import com.rezza.weatherapp.R;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,5 +75,28 @@ public class Utility {
         else {
             return 1;
         }
+    }
+
+    public static String readFileFromAsset(Context context, String file){
+        StringBuilder text = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(context.getAssets().open(file)))) {
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                text.append(mLine);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return text.toString();
+    }
+
+    public static SpannableString BoldText(Context pContext, String pText, int start, int end, String colorCode){
+        SpannableString content = new SpannableString(pText);
+        Typeface font =  ResourcesCompat.getFont(pContext, R.font.roboto_bold);
+        content.setSpan(new CustomTypefaceSpan("", font), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        content.setSpan(new ForegroundColorSpan(Color.parseColor(colorCode)), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        return content;
     }
 }
