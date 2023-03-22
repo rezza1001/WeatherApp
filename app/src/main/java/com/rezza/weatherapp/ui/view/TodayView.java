@@ -2,6 +2,7 @@ package com.rezza.weatherapp.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rezza.weatherapp.R;
@@ -15,6 +16,9 @@ public class TodayView extends MyView {
 
     protected TextView tv_date,tv_city,tv_humidity,tv_wind,tv_temperature,tv_status;
     private Calendar calendar;
+    private RelativeLayout rv_city;
+
+    private OnSelectedCityListener onSelectedCityListener;
 
     public TodayView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,11 +37,16 @@ public class TodayView extends MyView {
         tv_wind = mView.findViewById(R.id.tv_wind);
         tv_temperature = mView.findViewById(R.id.tv_temperature);
         tv_status = mView.findViewById(R.id.tv_status);
+        rv_city = mView.findViewById(R.id.rv_city);
     }
 
     @Override
     protected void initListener() {
-
+        rv_city.setOnClickListener(view -> {
+            if (onSelectedCityListener != null){
+                onSelectedCityListener.onSelect();
+            }
+        });
     }
 
     public void create() {
@@ -74,5 +83,12 @@ public class TodayView extends MyView {
 
     public void setStatus(String status){
         tv_status.setText(status);
+    }
+
+    public void setOnSelectedCityListener(OnSelectedCityListener onSelectedCityListener){
+        this.onSelectedCityListener = onSelectedCityListener;
+    }
+    public interface OnSelectedCityListener{
+        void onSelect();
     }
 }

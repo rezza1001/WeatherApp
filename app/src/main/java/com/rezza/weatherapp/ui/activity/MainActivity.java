@@ -62,10 +62,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new TimeAdapter(lisTimeToday);
         rv_time.setAdapter(mAdapter);
 
-        findViewById(R.id.rv_search).setOnClickListener(view -> findCity());
-        findViewById(R.id.rv_favorite).setOnClickListener(view -> showFavorite());
-
-
         FavoriteDB db = new FavoriteDB();
         ArrayList<FavoriteDB> listFavorite = db.getALl(this);
         if (listFavorite.size() > 0){
@@ -78,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         loadData();
 
         srf_refresh.setOnRefreshListener(this::loadData);
+        vw_today.setOnSelectedCityListener(this::findCity);
+        findViewById(R.id.rv_search).setOnClickListener(view -> findCity());
+        findViewById(R.id.rv_favorite).setOnClickListener(view -> showFavorite());
     }
 
     public void loadData(){
