@@ -17,7 +17,6 @@ import com.rezza.weatherapp.libs.Utility;
 import com.rezza.weatherapp.ui.adapter.TimeAdapter;
 import com.rezza.weatherapp.ui.dialog.FavoriteDialog;
 import com.rezza.weatherapp.ui.dialog.FindCityDialog;
-import com.rezza.weatherapp.ui.dialog.Loading;
 import com.rezza.weatherapp.ui.model.TimeHolder;
 import com.rezza.weatherapp.ui.view.AfterTmrView;
 import com.rezza.weatherapp.ui.view.TodayView;
