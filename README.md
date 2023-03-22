@@ -1,12 +1,19 @@
 # WeatherApp Mochamad Rezza Gumilang
 
-<b>Architecture</b>:  Untuk arsitektur menggunakan konsep MVVM dalam konmunikasi ke API. terdapat ViewModel untuk menghubungkan antar antar UI dan data model dari API,
+<b>Architecture</b>:  
+Untuk arsitektur menggunakan konsep MVVM dalam konmunikasi ke API. terdapat ViewModel untuk menghubungkan antar antar UI dan data model dari API,
 Model untuk menyediakan data yang diperlukan dalam aplikasi dan representasi data dari API, dan terdapat View untuk menampilkan ke user.
 
 <b>Feature</b>: 
 1. Menampilkan Cuaca berdasarkan nama kota
 2. Pencarian Kota yang dapat di proses
 3. Dapat menyimpan Kota Favorit
+
+
+<b>Library</b>: 
+1. Retrofit : komunikasi jaringan antara aplikasi Android dengan API
+2. Lifecycle-ViewModel :  Android Architecture Components (MVVM)
+3. Swiperefreshlayout : Komponen screen refresh
 
 <b>File APK</b>
 <a href="https://firebasestorage.googleapis.com/v0/b/calculatorimg.appspot.com/o/WeatherApp.apk?alt=media&token=ab12bfe2-a4b7-4b66-afee-f9c024f04412" download>Download Download APK</a>
